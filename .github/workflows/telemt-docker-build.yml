@@ -10,7 +10,7 @@ on:
 
   schedule:
     # проверяем каждые 6 часов, появился ли новый релиз
-    - cron: "17 */6 * * *"
+    - cron: "30 */1 * * *"
 
   push:
     branches: ["master"]
@@ -26,7 +26,7 @@ permissions:
   contents: write
 
 env:
-  IMAGE_NAME: whn0thacked/telemt-docker
+  IMAGE_NAME: kdeveloper77675/telemt-docker
 
   UPSTREAM_OWNER: telemt
   UPSTREAM_REPO: telemt
