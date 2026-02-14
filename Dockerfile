@@ -40,6 +40,15 @@ RUN --mount=type=cache,target=/usr/local/cargo/registry \
     --mount=type=cache,target=/src/target \
     set -eux; \
     \
+    # fix: убираем дубли модулей (foo.rs + foo/mod.rs) — cargo fmt не может их разрешить
+    find /src/src -name '*.rs' | while read f; do \
+      d="${f%.rs}"; \
+      if [ -d "$d" ] && [ -f "$d/mod.rs" ]; then \
+        echo "removing duplicate module file: $f (keeping $d/mod.rs)"; \
+        rm -f "$f"; \
+      fi; \
+    done; \
+    \
     cargo fmt --all; \
     \
     if [ ! -f Cargo.lock ]; then cargo generate-lockfile; fi; \
