@@ -3,7 +3,7 @@
     "owner": "telemt",
     "repo": "telemt"
   },
-  "release_tag": "2.0.0.1",
-  "release_sha": "7f8cde8317e8e550760c8bd0057c199db9401d31",
-  "built_at_utc": "2026-02-14T21:28:06Z"
+  "release_tag": "3.0.0",
+  "release_sha": "a80db2ddbc812b85bdbba969a5d0703c2e272889",
+  "built_at_utc": "2026-02-15T12:25:01Z"
 }
