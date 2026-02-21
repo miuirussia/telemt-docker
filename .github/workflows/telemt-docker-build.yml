@@ -143,7 +143,7 @@ jobs:
           echo "event=${{ github.event_name }}"
 
       # ── Skip everything below when no new release and not forced ──
-      - name: Build and push (multi-arch)
+      - name: Build and push
         if: |
           steps.check.outputs.changed == 'true' ||
           github.event_name == 'push' ||
@@ -153,7 +153,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
 
           tags: |
             ${{ env.IMAGE_NAME }}:latest
